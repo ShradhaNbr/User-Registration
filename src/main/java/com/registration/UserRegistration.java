@@ -5,7 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    public static boolean validateFirstName(String name) {
+    //Method to check if first name and last name is valid or not
+    public static boolean validateName(String name) {
         String regex = "^[A-Z]{1}[a-z]{2,}$";
         Pattern pattern = Pattern.compile(regex);
         if (name.isEmpty())
@@ -13,22 +14,36 @@ public class UserRegistration {
         Matcher matcher = pattern.matcher(name);
         return matcher.matches();
     }
-
+    //Method to check if email is valid or not
+    public static boolean validateEmail(String email) {
+        String regex = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+//Method to take the input from the user
     public void validateUserDetails() {
         Scanner sc = new Scanner(System.in);
         userDetails details = new userDetails();
         UserRegistration registration = new UserRegistration();
         System.out.println("Enter first name");
         details.setFirstName(sc.next());
-        boolean first = registration.validateFirstName(details.getFirstName());
+        boolean first = registration.validateName(details.getFirstName());
         if (first)
             System.out.println("Valid");
         else
             System.out.println("Invalid");
         System.out.println("Enter last name");
-        details.setFirstName(sc.next());
-        boolean last = registration.validateFirstName(details.getFirstName());
+        details.setLastName(sc.next());
+        boolean last = registration.validateName(details.getLastName());
         if (last)
+            System.out.println("Valid");
+        else
+            System.out.println("Invalid");
+        System.out.println("Enter email id");
+        details.setEmail(sc.next());
+        boolean email = registration.validateEmail(details.getEmail());
+        if (email)
             System.out.println("Valid");
         else
             System.out.println("Invalid");

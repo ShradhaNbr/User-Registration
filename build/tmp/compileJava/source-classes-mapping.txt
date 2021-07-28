@@ -1,6 +1,6 @@
+com/registration/userDetails.java
+ com.registration.userDetails
 com/registration/UserRegistration.java
  com.registration.UserRegistration
 com/registration/Registration.java
  com.registration.Registration
-com/registration/userDetails.java
- com.registration.userDetails
