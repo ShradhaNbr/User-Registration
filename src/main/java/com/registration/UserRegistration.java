@@ -5,12 +5,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    public static boolean validateFirstName(String firstName) {
+    public static boolean validateFirstName(String name) {
         String regex = "^[A-Z]{1}[a-z]{2,}$";
         Pattern pattern = Pattern.compile(regex);
-        if (firstName.isEmpty())
+        if (name.isEmpty())
             return false;
-        Matcher matcher = pattern.matcher(firstName);
+        Matcher matcher = pattern.matcher(name);
         return matcher.matches();
     }
 
@@ -19,9 +19,16 @@ public class UserRegistration {
         userDetails details = new userDetails();
         UserRegistration registration = new UserRegistration();
         System.out.println("Enter first name");
-        details.setfirstName(sc.next());
-        boolean flag = registration.validateFirstName(details.getFirstName());
-        if (flag)
+        details.setFirstName(sc.next());
+        boolean first = registration.validateFirstName(details.getFirstName());
+        if (first)
+            System.out.println("Valid");
+        else
+            System.out.println("Invalid");
+        System.out.println("Enter last name");
+        details.setFirstName(sc.next());
+        boolean last = registration.validateFirstName(details.getFirstName());
+        if (last)
             System.out.println("Valid");
         else
             System.out.println("Invalid");
