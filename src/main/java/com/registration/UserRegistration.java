@@ -30,6 +30,13 @@ public class UserRegistration {
         Matcher matcher = pattern.matcher(phoneNumber);
         return matcher.matches();
     }
+    //Method to check if password is valid or not password should have minimum 8 characters
+    private boolean validatePassword(String password) {
+        String regex = ("[a-zA-Z0-9]{8,}$");
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
 
         //Method to take the input from the user
         public void validateUserDetails () {
@@ -64,6 +71,15 @@ public class UserRegistration {
                 System.out.println("Valid");
             else
                 System.out.println("Invalid");
+            System.out.println("Enter password");
+            details.setPassword(sc.next());
+            boolean password = registration.validatePassword(details.getPassword());
+            if (password)
+                System.out.println("Valid");
+            else
+                System.out.println("Invalid");
             sc.close();
         }
+
+
 }
