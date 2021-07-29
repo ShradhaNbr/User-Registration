@@ -30,9 +30,15 @@ public class UserRegistration {
         Matcher matcher = pattern.matcher(phoneNumber);
         return matcher.matches();
     }
-    //Method to check if password is valid or not password should have minimum 8 characters and atleast 1 upper case letter
+    /*
+    *Purpose :Method to check if password is valid or not
+    * password should have minimum 8 characters
+    * Atleast 1 upper case letter
+    * Atleast 1 numeric digit
+    * Atleast 1 special character
+     */
     private boolean validatePassword(String password) {
-        String regex = ("(?=.*[a-z])(?=.*[A-Z]).(?=.*[0-9]).{8,}$");
+        String regex = ("(?=.*[a-z])(?=.*[A-Z]).(?=.*[0-9]).(?=.*[@#$%^&-+=()]).{8,}$");
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
